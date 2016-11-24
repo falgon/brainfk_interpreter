@@ -13,13 +13,10 @@ namespace{
 std::experimental::optional<std::string> file_open(const char* file_name)
 {
 	std::ifstream ifs(file_name,std::ios::in);
-	if(ifs.fail()){
-		return {};
-	}else{
-		std::ostringstream os;
-		os<<ifs.rdbuf();
-		return os.str();
-	}
+	if(ifs.fail())return {};
+	std::ostringstream os;
+	os<<ifs.rdbuf();
+	return os.str();
 }
 
 int main(const int argc,const char* argv[])
